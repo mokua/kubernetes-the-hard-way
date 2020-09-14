@@ -49,9 +49,9 @@ scp ca.crt worker-2:~/
 
 ```
 wget -q --show-progress --https-only --timestamping \
-  https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubectl \
-  https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-proxy \
-  https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubelet
+  https://storage.googleapis.com/kubernetes-release/release/v1.19.1/bin/linux/amd64/kubectl \
+  https://storage.googleapis.com/kubernetes-release/release/v1.19.1/bin/linux/amd64/kube-proxy \
+  https://storage.googleapis.com/kubernetes-release/release/v1.19.1/bin/linux/amd64/kubelet
 ```
 
 Reference: https://kubernetes.io/docs/setup/release/#node-binaries
@@ -314,6 +314,7 @@ ExecStart=/usr/local/bin/kubelet \\
   --rotate-server-certificates=true \\
   --network-plugin=cni \\
   --register-node=true \\
+  --cgroup-driver=systemd \\
   --v=2
 Restart=on-failure
 RestartSec=5
